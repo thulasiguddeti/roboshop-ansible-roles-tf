@@ -1,0 +1,11 @@
+MONGODB_HOST: mongodb-prod.pragna.site # submit your values
+REDIS_HOST: redis-prod.pragna.site
+MYSQL_HOST: mysql-prod.pragna.site
+RABBITMQ_HOST: rabbitmq-prod.pragna.site
+USER_HOST: user-prod.pragna.site
+CART_HOST: cart-prod.pragna.site
+PAYMENT_HOST: payment-prod.pragna.site
+SHIPPING_HOST: shipping-prod.pragna.site
+DISPATCH_HOST: dispatch-prod.pragna.site
+CATALOGUE_HOST: catalogue-prod.pragna.site
+
