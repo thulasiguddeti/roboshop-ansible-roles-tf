@@ -17,6 +17,11 @@
   ansible.builtin.service:
     name: "{{component}}"
     state: restarted
-    enabled: yes  
+    enabled: yes 
 
-  
+
+- name: "restart {{component}}"
+  command: "systemctl restart {{component}}"
+
+ 
+
