@@ -13,14 +13,13 @@
     name: common
     tasks_from: mongodb-setup
 
-- name: start and enable catalogue 
-  ansible.builtin.service:
-    name : catalogue 
-    state: restarted 
-    enabled: true 
+- name: system start 
+  ansible.builtin.import_role:
+    name : common 
+    tasks_from: systemd
 
 - name: deployment
   ansible.builtin.import_role:
-    name: common
+    name: common 
     tasks_from: deployment
 
