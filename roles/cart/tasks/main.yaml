@@ -8,7 +8,8 @@
     name: common
     tasks_from: nodejs
 
-- name: system start
-  ansible.builtin.import_role:
-    name: common
-    tasks_from: systemd
+- name: start and enable cart 
+  ansible.builtin.service:
+    name : cart 
+    state: restarted 
+    enabled: true    
