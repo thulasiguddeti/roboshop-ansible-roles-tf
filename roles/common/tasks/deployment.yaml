@@ -43,9 +43,9 @@
   args:
     chdir: /app
   
-- name: restsrt "{{component}}"
+- name: "restart {{component}}"
   tags:
   - deployment
   ansible.builtin.service:
     name: "{{component}}"
-    state: restart
+    state: restarted
