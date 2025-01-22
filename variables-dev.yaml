@@ -8,6 +8,6 @@ PAYMENT_HOST: payment.app-dev.pragna.site
 SHIPPING_HOST: shipping.app-dev.pragna.site
 DISPATCH_HOST: dispatch.app-dev.pragna.site
 CATALOGUE_HOST: catalogue.app-dev.pragna.site
-NEXUS_URL: http://172.31.88.161:8081/repository/catalogue
+NEXUS_URL: http://52.91.205.171:8081//repository/catalogue
 group_id: "com/roboshop"
 
