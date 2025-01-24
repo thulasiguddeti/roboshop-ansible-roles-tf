@@ -8,7 +8,7 @@
 
 - name: Download remi-release RPM package
   ansible.builtin.get_url:
-    url: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+    url: https://rpms.remirepo.net/enterprise/remi-release-8.9rpm
     dest: /tmp/remi-release-8.rpm
     mode: '0644'
 
