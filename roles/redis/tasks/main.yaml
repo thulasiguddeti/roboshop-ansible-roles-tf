@@ -1,4 +1,4 @@
- - name: Install redis
+- name: Install redis
   ansible.builtin.dnf:
     name: redis
     state: present
