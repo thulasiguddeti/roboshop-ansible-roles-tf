@@ -1,8 +1,42 @@
-- name: Install remi release
-  ansible.builtin.dnf:
-    name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm 
-    state: present
-    disable_gpg_check: true
+- name: Ensure EPEL release is installed
+ansible.builtin.yum:
+  name: epel-release
+  state: present
+
+- name: Ensure the required redhat-release version is present
+ansible.builtin.shell:
+  cmd: "dnf update redhat-release -y"
+  warn: false
+register: redhat_update_result
+changed_when: "'Complete!' in redhat_update_result.stdout or 'Nothing to do' in redhat_update_result.stdout"
+
+- name: Download remi-release RPM
+ansible.builtin.get_url:
+  url: "https://rpms.remirepo.net/enterprise/remi-release-8.rpm"
+  dest: "/tmp/remi-release-8.rpm"
+
+- name: Install remi-release RPM
+ansible.builtin.command:
+  cmd: "dnf install -y /tmp/remi-release-8.rpm"
+  warn: false
+register: remi_install_result
+failed_when: "'Complete!' not in remi_install_result.stdout"
+
+- name: Clean all DNF metadata
+ansible.builtin.command:
+  cmd: "dnf clean all"
+  warn: false
+
+- name: Rebuild DNF metadata cache
+ansible.builtin.command:
+  cmd: "dnf makecache"
+  warn: false
+
+# - name: Install remi release
+#   ansible.builtin.dnf:
+#     name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm 
+#     state: present
+#     disable_gpg_check: true
 
 - name: enable redis
   ansible.builtin.command: dnf module enable redis:remi-6.2 -y
