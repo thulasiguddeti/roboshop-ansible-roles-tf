@@ -6,8 +6,9 @@
     name: nodejs
     state: present
 
-- name: Install dependencies
-  ansible.builtin.command: npm install 
-  args:
-    chdir: /app
+#This is not required whwn we are using jenkins pipeline 
+# - name: Install dependencies
+#   ansible.builtin.command: npm install 
+#   args:
+#     chdir: /app
   
